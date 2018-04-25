@@ -192,12 +192,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -254,6 +256,26 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\banner-img-1.jpg" />
+    <Content Include="Images\banner-img-2.jpg" />
+    <Content Include="Images\counter-1.png" />
+    <Content Include="Images\counter-2.png" />
+    <Content Include="Images\counter-3.png" />
+    <Content Include="Images\counter-4.png" />
+    <Content Include="Images\feature-box-bg-2.jpg" />
+    <Content Include="Images\feature-box-bg-3.jpg" />
+    <Content Include="Images\feature-box-bg.jpg" />
+    <Content Include="Images\featured-box-bg-1.jpg" />
+    <Content Include="Images\logo-ft.png" />
+    <Content Include="Images\logo-white.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\slider1-bg1.jpg" />
+    <Content Include="Images\slider1-bg2.jpg" />
+    <Content Include="Images\slider1-icon.png" />
+    <Content Include="Images\slider2-bg1.jpg" />
+    <Content Include="Images\slider2-icon.png" />
+    <Content Include="Images\slider3-icon.png" />
+    <Content Include="Images\slider3-icon2.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -312,6 +334,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\HomePage\Home.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -329,6 +358,20 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BO\BO.csproj">
+      <Project>{613a60c6-88f2-4052-a69b-2f995627c93d}</Project>
+      <Name>BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DA\DA.csproj">
+      <Project>{070879ad-8adf-4735-9019-b6eb049e945a}</Project>
+      <Name>DA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PrjModel\PrjModel.csproj">
+      <Project>{514ce2e9-2161-421e-adab-8299a349282a}</Project>
+      <Name>PrjModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

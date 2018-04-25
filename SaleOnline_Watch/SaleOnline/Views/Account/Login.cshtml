@@ -1,63 +1,46 @@
-﻿@using SaleOnline.Models
-@model LoginViewModel
+﻿@model PrjModel.Account
+
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Login";
+    Layout = "~/Views/HomePage/Home.cshtml";
 }
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
-            }
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
-</div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+@if (TempData["taikhoan"] != null)
+{
+    <script>
+        alert("Tài khoản hoặc mật khẩu không đúng");
+    </script>
 }
+@if ((string)Session["Role"] == "User")
+{
+    <script>
+    window.location.href = 'http://localhost:1712/TaiKhoan/HomeUserslider'; 
+    </script>
+}
+else if ((string)Session["Role"] == "Admin")
+{
+    <script>
+    window.location.href = 'http://localhost:1712/TaiKhoan/Index'; 
+    </script>
+}
+else
+{
+    using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+       
+        <div class="form-group" style="background:#e8e8e8;padding-top:20px;padding-bottom:20px;margin-left:400px;margin-right:400px">
+            <form>
+                <div> <input type="text" placeholder="Tên đăng nhập" id="txtusername" name="UserName" class="form-control" style="width:50%;margin-top:30px;margin-right:30px;margin-left:150px">@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger-login" })</div>
+                <div><input type="password" placeholder="Mật khẩu" id="txtusername" name="Password" class="form-control" style="width:50%;margin-top:30px;margin-right:30px;margin-bottom:10px;margin-left:150px">@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger-login" })</div>
+                <div><input type="submit" value="Sign up" class="btn" style="margin:30px;margin-left:150px;width:50%;background:#ff6a00;color:white"></div>
+            </form>
+        </div>
+
+
+    }
+}
+
+
