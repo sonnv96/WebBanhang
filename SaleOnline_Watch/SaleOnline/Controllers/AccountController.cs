@@ -6,7 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using DA;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using PrjModel;
 
 namespace SaleOnline.Controllers
@@ -167,5 +170,12 @@ namespace SaleOnline.Controllers
             }
             return View(account);
         }
+        public ActionResult LogOff()
+        {
+            Session.Clear();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Product");
+        }
+
     }
 }

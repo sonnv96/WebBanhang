@@ -70,6 +70,32 @@
                                 <div class="item">
                                     <div class="wg-social"><a href="checkout.html"><i class="fa fa-shopping-cart fa-2x"></i><span>Shopping Cart</span></a></div>
                                 </div>
+                                <div class="item">
+                                    <div class="wg-social">
+                                        <a href="checkout.html" data-toggle="dropdown">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                            @if (Session["UserName"] != null)
+                                            {
+                                                <span>Xin Chào</span> @Session["UserName"];
+                                                <ul class="dropdown-menu">
+
+                                                    <li><a href="@Url.Action("LogOff", "Account")" class="logoff"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
+                                                </ul>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("Login", "Account")"> Đăng nhập </a>}
+
+
+
+
+
+
+
+
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -79,7 +105,7 @@
                         <div class="open-offcanvas">&#9776;</div>
 
                         <div class="header-logo"><a href="index.html" class="logo logo-static"><img src="assets/images/logo-white.png" alt="fooday" class="logo-img"></a><a href="index.html" class="logo logo-fixed"><img src="assets/images/logo.png" alt="fooday" class="logo-img"></a></div>
-                       
+
                         <nav id="main-nav-offcanvas" class="main-nav-wrapper">
                             <div class="close-offcanvas-wrapper"><span class="close-offcanvas">x</span></div>
                             <div class="main-nav">
@@ -102,7 +128,7 @@
                         <div class="slide-content slide-layout-02">
                             <div class="container">
                                 <div class="slide-content-inner">
-                                   
+
                                     <h3 data-ani-in="fadeInUp" data-ani-out="fadeOutDown" data-ani-delay="1000" class="slide-title animated">CATIER WATCH</h3>
                                     <p data-ani-in="fadeInUp" data-ani-out="fadeOutDown" data-ani-delay="1500" class="slide-sub-title animated"><span class="line-before"></span><span class="line-after"></span><span class="text"><span>Citizen</span><span>Casio</span><span>Timex</span></span></p>
                                 </div>
@@ -113,7 +139,7 @@
                 <div class="page-content-wrapper">
 
 
-                 @RenderBody()
+                    @RenderBody()
 
                 </div>
             </div>
@@ -143,21 +169,21 @@
                                                 <div class="address-info">
                                                     <div class="info-icon"><i class="fa fa-map-marker"></i></div>
                                                     <div class="info-content">
-                                                       <p>Min's Home</p>
+                                                        <p>Min's Home</p>
                                                     </div>
                                                 </div>
                                                 <div class="phone-info">
                                                     <div class="info-icon"><i class="fa fa-mobile-phone"></i></div>
                                                     <div class="info-content">
                                                         <p>0975363816</p>
-                                                      
+
                                                     </div>
                                                 </div>
                                                 <div class="email-info">
                                                     <div class="info-icon"><i class="fa fa-envelope"></i></div>
                                                     <div class="info-content">
                                                         <p>sonnv.vnu@gmail.com</p>
-                                                       
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -361,7 +387,7 @@
     <script src="~/Content/assets/js/layout.js"></script>
     <script src="~/Content/assets/js/elements.js"></script>
     <script src="~/Content/assets/js/widget.js"></script>
-   
+
 </body>
 <!-- Mirrored from swin-themes.com/html/fooday/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Sep 2017 09:12:42 GMT -->
 </html>

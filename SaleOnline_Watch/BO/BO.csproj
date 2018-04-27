@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="CategoriesBO.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="OrderBO.cs" />
     <Compile Include="ProductBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
