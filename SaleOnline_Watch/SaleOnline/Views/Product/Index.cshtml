@@ -1,74 +1,10 @@
-﻿@model IEnumerable<PrjModel.Product>
+﻿@model List<PrjModel.Product>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/HomePage/Home.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Supplier.CompanyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UnitPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductImage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnitPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductImage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
-            </td>
-        </tr>
-    }
-
-</table>
 
 
 
@@ -87,14 +23,27 @@
                             <div class="blog-item item swin-transition">
                                 <div class="block-img">
                                     <img src="~/Images/banner-img-2.jpg" alt="" class="img img-responsive">
-                                    <div class="block-circle price-wrapper"><span class="price woocommerce-Price-amount amount"><span class="price-symbol">@item.UnitPrice</span></span></div>
+                                    <div class="block-circle price-wrapper"><span class="price woocommerce-Price-amount amount"><span class="price-symbol">@String.Format("{0:0,0}", @item.UnitPrice) VNĐ</span></span></div>
 
-                                    <div class="group-btn"><a href="@Url.Action("Detail", "Product", new {id = item.ProductID })" class="swin-btn btn-link"><i class="icons fa fa-link"></i></a><a href="javascript:void(0)" class="swin-btn btn-add-to-card"><i class="fa fa-shopping-basket"></i></a></div>
+                                    <div class="group-btn">
+                                        <a href="@Url.Action("Detail", "Product", new {id = item.ProductID })" class="swin-btn btn-link"><i class="icons fa fa-link"></i></a>
+                                        <button class="muahang swin-btn btn-link" value="@item.ProductID">
+
+
+
+    <i class="fa fa-shopping-basket" >
+
+    </i>
+</button>
+    
+
+
+                                    </div>
                                 </div>
                                 <div class="block-content">
                                     <h5 class="title"><a href="@Url.Action("Detail", "Product", new {id = item.ProductID })">@item.ProductName</a></h5>
                                     <div class="product-info">
-                                      @item.Description 
+                                        @item.Description
                                     </div>
                                 </div>
                             </div>
@@ -111,3 +60,19 @@
 
     </div>
 </section>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        $(".muahang").click(function () {
+            var id = $(this).val();
+            $.ajax({
+                url: "/ShoppingCart/AddCard",
+                data:{pid: id},
+                success: function (data) {
+                    $("#giohang").text(data)
+                }
+            })
+        })
+    })
+</script>

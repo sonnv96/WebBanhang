@@ -37,8 +37,8 @@ namespace DA
         }
         public Product GetProductById(int id)
         {
-            Product s = db.Products.Where(x => x.ProductID == id).FirstOrDefault();
-            return s;
+            
+            return db.Products.Where(x => x.ProductID == id).SingleOrDefault(); 
         }
         public bool EditProduct(Product sp)
         {

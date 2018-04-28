@@ -102,7 +102,7 @@ namespace SaleOnline.Controllers
         public ActionResult Payment(FormCollection f)
         {
             //Kiểm tra đăng đăng nhập
-            if (Session["maTaiKhoan"] == null || Session["maTaiKhoan"].ToString() == "")
+            if (Session["UserName"] == null || Session["UserName"].ToString() == "")
             {
                 this.TempData["ThongBao"] = "Bạn chưa đăng nhập, " +
                     "mời bạn đăng nhập để thanh toán hóa đơn!";
@@ -116,12 +116,13 @@ namespace SaleOnline.Controllers
             //Thêm đơn hàng
             Order od = new Order();
             List<ProductCard> lstCart = GetCard();
-            od.OrderID = obo.createNewOrderID(Session["maTaiKhoan"].ToString());
-            od.CustomerID = Session["maTaiKhoan"].ToString();
+            od.CustomerID = "1";
+            od.OrderID = obo.createNewOrderID(Session["UserName"].ToString());
+          
             od.OrderDate = DateTime.Now;
             od.RequiredDate = DateTime.Now;
             od.ShippedDate = od.OrderDate.AddDays(3);
-            od.ShipAddress = f["txtAddress"];
+            od.ShipAddress = "";
             od.Freight = 0;
             //Thêm chi tiết đơn hàng
             List<Order_Detail> lstD = new List<Order_Detail>();
@@ -136,7 +137,7 @@ namespace SaleOnline.Controllers
             }
             obo.AddOrder(od, lstD);
             Session["Card"] = null;
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Product");
         }
     }
 }

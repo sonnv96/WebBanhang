@@ -343,11 +343,11 @@
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\ViewShoppingCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\assets\vendors\bootstrap\" />
-    <Folder Include="Views\ShoppingCart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
