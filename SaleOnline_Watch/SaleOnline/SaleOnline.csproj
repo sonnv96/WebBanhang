@@ -199,7 +199,9 @@
     <Compile Include="Controllers\CategorieController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Order_DetailController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -216,6 +218,9 @@
     <Content Include="Content\assets\css\color\colordefault.css" />
     <Content Include="Content\assets\css\elements.css" />
     <Content Include="Content\assets\css\extra.css" />
+    <Content Include="Content\assets\css\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\assets\css\font-awesome\fonts\fontawesome-webfontba72.html" />
+    <Content Include="Content\assets\css\font-awesome\fonts\fontawesome-webfontba72.svg" />
     <Content Include="Content\assets\css\layout.css" />
     <Content Include="Content\assets\css\live-settings.css" />
     <Content Include="Content\assets\css\responsive.css" />
@@ -232,6 +237,7 @@
     <Content Include="Content\assets\vendors\bootstrap-datepicker\bootstrap-datepicker.min.js" />
     <Content Include="Content\assets\vendors\flexslider\flexslider.min.css" />
     <Content Include="Content\assets\vendors\flexslider\jquery.flexslider-min.js" />
+    <Content Include="Content\assets\vendors\font-awesome\css\font-awesome.css" />
     <Content Include="Content\assets\vendors\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.html" />
     <Content Include="Content\assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.svg" />
@@ -259,9 +265,36 @@
     <Content Include="Content\assets\vendors\swipebox\jquery.swipebox.min.js" />
     <Content Include="Content\assets\vendors\swipebox\swipebox.min.css" />
     <Content Include="Content\assets\vendors\wow.min.js" />
+    <Content Include="Content\bootstrap-reset.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery.easy-pie-chart.css" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\common-scripts.js" />
+    <Content Include="Content\js\count.js" />
+    <Content Include="Content\js\easy-pie-chart.js" />
+    <Content Include="Content\js\jquery.customSelect.min.js" />
+    <Content Include="Content\js\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="Content\js\jquery.easy-pie-chart.js" />
+    <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\js\jquery.nicescroll.js" />
+    <Content Include="Content\js\jquery.scrollTo.min.js" />
+    <Content Include="Content\js\jquery.sparkline.js" />
+    <Content Include="Content\js\owl.carousel.js" />
+    <Content Include="Content\js\respond.min.js" />
+    <Content Include="Content\js\slidebars.min.js" />
+    <Content Include="Content\js\sparkline-chart.js" />
+    <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Sass\mycss.css">
+      <DependentUpon>mycss.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Sass\mycss.min.css">
+      <DependentUpon>mycss.css</DependentUpon>
+    </Content>
+    <Content Include="Content\slidebars.css" />
+    <Content Include="Content\style-responsive.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -298,6 +331,14 @@
     <Content Include="Content\assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.ttf" />
     <Content Include="Content\assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.woff" />
     <Content Include="Content\assets\vendors\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\Sass\mycss.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Content\assets\css\font-awesome\fonts\fontawesome-webfontba72.eot" />
+    <Content Include="Content\assets\css\font-awesome\fonts\fontawesome-webfontba72.woff" />
+    <Content Include="Content\assets\css\font-awesome\fonts\fontawesome-webfontd41d.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -362,6 +403,21 @@
     <Content Include="Views\Product\LoadtheoCasio.cshtml" />
     <Content Include="Views\Product\LoadtheoTimex.cshtml" />
     <Content Include="Views\Product\LoadtheoCitizen.cshtml" />
+    <Content Include="Views\HomePage\Admin.cshtml" />
+    <Content Include="Views\Product\IndexAdmin.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Order_Detail\Create.cshtml" />
+    <Content Include="Views\Order_Detail\Delete.cshtml" />
+    <Content Include="Views\Order_Detail\Details.cshtml" />
+    <Content Include="Views\Order_Detail\Edit.cshtml" />
+    <Content Include="Views\Order_Detail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

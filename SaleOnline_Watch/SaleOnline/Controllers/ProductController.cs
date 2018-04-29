@@ -30,6 +30,12 @@ namespace SaleOnline.Controllers
             List<Product> lstR = pbo.GetAllProduct();
             return View(lstR);
         }
+        public ActionResult IndexAdmin()
+        {
+            ViewBag.cat = db.Categories.Where(x => x.CategoryID > 3).ToList();
+            List<Product> lstR = pbo.GetAllProduct();
+            return View(lstR);
+        }
         public ActionResult Create()
         {
             ViewBag.Cat = new SelectList(catbo.GetAllCat(), "CategoryID", "CategoryName");
