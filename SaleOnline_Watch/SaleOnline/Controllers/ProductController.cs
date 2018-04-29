@@ -7,6 +7,7 @@ using DA;
 using BO;
 using PrjModel;
 using SaleOnline.Models;
+using PagedList;
 
 namespace SaleOnline.Controllers
 {
@@ -15,14 +16,17 @@ namespace SaleOnline.Controllers
         // GET: Product
         ProductBO pbo;
         CategoriesBO catbo;
+        SaleOnlineContext db;
 
         public ProductController()//constructor
         {
             pbo = new ProductBO();//khởi tạo lớp ProductBO 
             catbo = new CategoriesBO();
+            db = new SaleOnlineContext();
         }
         public ActionResult Index()
         {
+            ViewBag.cat = db.Categories.Where(x=>x.CategoryID > 3).ToList();
             List<Product> lstR = pbo.GetAllProduct();
             return View(lstR);
         }
@@ -115,6 +119,7 @@ namespace SaleOnline.Controllers
         }
         public ActionResult Detail(int id)
         {
+            ViewBag.cat = db.Categories.Where(x => x.CategoryID > 3).ToList();
             Product p = pbo.GetProductbyId(id);
             return View(p);
         }
@@ -135,5 +140,31 @@ namespace SaleOnline.Controllers
                 return View();
             }
         }
+        public ActionResult LoadtheoCat(int id, int page = 1, int pageSize = 3)
+        {
+            ViewBag.cat = db.Categories.Where(x => x.CategoryID > 3).ToList();
+
+            return View(db.Products.ToList().Where(x => x.CategoryID ==id).ToPagedList(page, pageSize));
+
+        }
+        public ActionResult LoadtheoCasio(int page = 1, int pageSize = 3)
+        {
+            ViewBag.cat = db.Categories.Where(x => x.CategoryID > 3).ToList();
+            return View(db.Products.ToList().Where(x => x.CategoryID == 1).ToPagedList(page, pageSize));
+
+        }
+        public ActionResult LoadtheoTimex(int page = 1, int pageSize = 3)
+        {
+            ViewBag.cat = db.Categories.Where(x => x.CategoryID > 3).ToList();
+            return View(db.Products.ToList().Where(x => x.CategoryID == 2).ToPagedList(page, pageSize));
+
+        }
+        public ActionResult LoadtheoCitizen(int page = 1, int pageSize = 3)
+        {
+            ViewBag.cat = db.Categories.Where(x => x.CategoryID > 3).ToList();
+            return View(db.Products.ToList().Where(x => x.CategoryID == 3).ToPagedList(page, pageSize));
+
+        }
+
     }
 }

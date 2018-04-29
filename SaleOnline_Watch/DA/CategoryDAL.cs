@@ -18,6 +18,7 @@ namespace DA
         public List<Category> GetAllCategori()
         {
             List<Category> lst = db.Categories.ToList();
+            
             return lst;
         }
     }

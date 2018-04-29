@@ -1,0 +1,78 @@
+﻿@model PagedList.IPagedList<PrjModel.Product>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "LoadCategory";
+    Layout = "~/Views/HomePage/Home.cshtml";
+}
+
+<h2>LoadCategory</h2>
+
+<section class="product-sesction-02 padding-top-100 padding-bottom-100">
+    <div class="container">
+        <div class="swin-sc swin-sc-title style-3">
+            <p class="title"><span>Danh sách Sản phẩm</span></p>
+        </div>
+        <div class="swin-sc swin-sc-product products-02 carousel-02">
+
+            <div class="products nav-slider">
+                <div class="row slick-padding">
+               @foreach(var item in Model)
+                    {
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="blog-item item swin-transition">
+                                <div class="block-img">
+                                    <img src="~/Images/banner-img-2.jpg" alt="" class="img img-responsive">
+                                    <div class="block-circle price-wrapper"><span class="price woocommerce-Price-amount amount"><span class="price-symbol">@String.Format("{0:0,0}", @item.UnitPrice) VNĐ</span></span></div>
+
+                                    <div class="group-btn">
+                                        <a href="@Url.Action("Detail", "Product", new {id = item.CategoryID })" class="swin-btn btn-link"><i class="icons fa fa-link"></i></a>
+                                        <button class="muahang swin-btn btn-link" value="@item.ProductID">
+
+
+
+                                            <i class="fa fa-shopping-basket">
+
+                                            </i>
+                                        </button>
+
+
+
+                                    </div>
+                                </div>
+                                <div class="block-content">
+                                    <h5 class="title"><a href="@Url.Action("Detail", "Product", new {id = item.ProductID })">@item.ProductName</a></h5>
+                                    <div class="product-info">
+                                        @item.Description
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        $(".muahang").click(function () {
+            var id = $(this).val();
+            $.ajax({
+                url: "/ShoppingCart/AddCard",
+                data:{pid: id},
+                success: function (data) {
+                    $("#giohang").text(data)
+                }
+            })
+        })
+    })
+</script>

@@ -40,6 +40,8 @@ namespace DA
             
             return db.Products.Where(x => x.ProductID == id).SingleOrDefault(); 
         }
+      
+      
         public bool EditProduct(Product sp)
         {
             Product s = db.Products.Where(x => x.ProductID == sp.ProductID).FirstOrDefault();

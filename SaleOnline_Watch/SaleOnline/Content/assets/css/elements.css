@@ -2524,15 +2524,15 @@ footer {
 .datepicker table tr td.active:hover:hover,
 .datepicker table tr td.active[disabled]:hover,
 .datepicker table tr td.active[disabled] {
-  background: #f15f2a; }
+  background: black; }
 
 .pageload-overlay.show,
 .pageload-overlay {
-  background-color: #f15f2a;
+  background-color: black;
   visibility: visible; }
 
 .pageload-loading {
-  background-color: #f15f2a; }
+  background-color: black; }
 
 .pageload-overlay svg path {
-  fill: #f15f2a; }
+  fill: black; }

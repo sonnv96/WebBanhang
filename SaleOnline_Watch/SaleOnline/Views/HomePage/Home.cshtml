@@ -1,4 +1,6 @@
-﻿@using SaleOnline.Models
+﻿
+@using SaleOnline.Models
+
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
@@ -118,12 +120,32 @@
                             <div class="close-offcanvas-wrapper"><span class="close-offcanvas">x</span></div>
                             <div class="main-nav">
                                 <ul id="main-nav" class="nav nav-pills">
-                                    <li><a class="current-menu-item" href="./">Home</a></li>
-                                    <li><a href="ds-thuc-don.html">Longgines</a></li>
-                                    <li><a href="mon-an-theo-mua.html">Casio</a></li>
-                                    <li><a href="tim-kiem.html">Timex</a></li>
-                                    <li><a href="about.html">Citizen</a></li>
+
+
+                                    <li><a href="@Url.Action("Index", "Product")">Home</a></li>
+
+                                    <li><a href="@Url.Action("LoadtheoCasio", "Product")">Casio</a></li>
+                                    <li><a href="@Url.Action("LoadtheoTimex", "Product")">Timex</a></li>
+                                    <li><a href="@Url.Action("LoadtheoCitizen", "Product")">Citizen</a></li>
+                                    <li>
+                                        <a href=" @Url.Action("LoadtheoCat", "Product")" data-toggle="dropdown">Thể Loại</a>
+
+
+
+                                        <ul class="dropdown-menu">
+
+                                            <li>
+                                                @foreach (var item in ViewBag.cat)
+                                                {
+                                                    <a href="@Url.Action("LoadtheoCat", "Product", new { id = item.CategoryID })" class="logoff">@item.CategoryName</a>
+                                                }
+                                            </li>
+                                        </ul>
+                                    </li>
+
+
                                     <li><a href="contact.html">Liên hệ</a></li>
+
                                 </ul>
                             </div>
                         </nav>
