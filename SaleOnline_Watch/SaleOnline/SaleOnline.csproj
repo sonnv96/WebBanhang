@@ -197,12 +197,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategorieController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Order_DetailController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -419,6 +421,16 @@
     <Content Include="Views\Order_Detail\Details.cshtml" />
     <Content Include="Views\Order_Detail\Edit.cshtml" />
     <Content Include="Views\Order_Detail\Index.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Suppliers\Create.cshtml" />
+    <Content Include="Views\Suppliers\Delete.cshtml" />
+    <Content Include="Views\Suppliers\Details.cshtml" />
+    <Content Include="Views\Suppliers\Edit.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
