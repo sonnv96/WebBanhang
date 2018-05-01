@@ -153,7 +153,7 @@ namespace SaleOnline.Controllers
 
                         if (obj.Role == "Admin")
                         {
-                            return RedirectToAction("Index", "TaiKhoan");
+                            return RedirectToAction("IndexAdmin", "Product");
                         }
                         else if (obj.Role == "User")
                         {

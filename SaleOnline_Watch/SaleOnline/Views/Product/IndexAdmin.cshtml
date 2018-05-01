@@ -5,7 +5,7 @@
     Layout = "~/Views/HomePage/Admin.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Danh sách sản phẩm</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -61,9 +61,9 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                <a href="@Url.Action("Edit", "Products", new {id = item.ProductID })">Sửa</a> |
+                <a href="@Url.Action("Details", "Products", new {id = item.ProductID })">Chi tiết</a>|
+                <a href="@Url.Action("Delete", "Products", new {id = item.ProductID })">Xóa</a>
             </td>
         </tr>
     }

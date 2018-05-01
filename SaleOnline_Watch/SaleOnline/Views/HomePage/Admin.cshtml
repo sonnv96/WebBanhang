@@ -37,7 +37,7 @@
                 <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
             <!--logo start-->
-            <a href="@Url.Action("Home", "TaiKhoans")" class="logo">Quản<span>trị</span></a>
+            <a href="@Url.Action("IndexAdmin", "Product")" class="logo">Quản<span>trị</span></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -262,7 +262,7 @@
                             <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                             <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                            <li><a href="@Url.Action("LogOff", "TaiKhoans")"><i class="fa fa-key"></i> Log Out</a></li>
+                            <li><a href="@Url.Action("LogOff", "Account")"><i class="fa fa-key"></i> Log Out</a></li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
@@ -277,29 +277,29 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
                     <li>
-                        <a class="active" href="@Url.Action("Index","MonHoc")">
+                        <a class="active" href="@Url.Action("IndexAdmin","Product")">
                             <i class="fa fa-dashboard"></i>
-                            <span>Quản lý Môn Học</span>
+                            <span>Quản lý Sản Phẩm</span>
                         </a>
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class=" fa fa-envelope"></i>
-                            <span>Mail</span>
+                            <span>Quản lý loại và công ty</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="inbox.html">Inbox</a></li>
-                            <li><a href="inbox_details.html">Inbox Details</a></li>
+                            <li><a href="@Url.Action("Index","Categorie")">Thể Loại</a></li>
+                            <li><a href="@Url.Action("Index","Suppliers")">Nhà Cung Cấp</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class=" fa fa-bar-chart-o"></i>
-                            <span>Quản lý Tài Khoản</span>
+                            <span>Quản lý Khách hàng</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="morris.html">Tài Khoản Quản Trị</a></li>
-                            <li><a href="chartjs.html"> Tài Khoản Giảng Viên</a></li>
+                            <li><a href="@Url.Action("Index","Customer")">Khách hàng</a></li>
+                            <li><a href="@Url.Action("Index","Order_Detail")"> Chi tiết hóa đơn</a></li>
                             <li><a href="@Url.Action("TKSinhVien","QuanTri")">Tài Khoản Sinh Viên</a></li>
 
                         </ul>

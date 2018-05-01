@@ -284,6 +284,7 @@
     <Content Include="Content\js\respond.min.js" />
     <Content Include="Content\js\slidebars.min.js" />
     <Content Include="Content\js\sparkline-chart.js" />
+    <Content Include="Content\login-form.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Sass\mycss.css">

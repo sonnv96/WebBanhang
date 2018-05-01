@@ -17,6 +17,8 @@ namespace SaleOnline.Controllers
             return View();
         }
         ProductBO pbo;
+        SaleOnlineContext db;
+      
 
         public ActionResult AddCard(int pid)// GET: ShoppingCard
         {
@@ -46,9 +48,10 @@ namespace SaleOnline.Controllers
         }
         public ActionResult ViewShoppingCard()
         {
+            ViewBag.cat = db.Categories.Where(x => x.CategoryID > 3).ToList();
             if (Session["Card"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Product");
             }
             List<ProductCard> lstCard = GetCard();
             ViewBag.MoneySum = lstCard.Sum(x => (x.dPrice * x.iQuantity));
@@ -96,6 +99,7 @@ namespace SaleOnline.Controllers
         {
             pbo = new ProductBO();
             obo = new OrderBO();//khoi tao lop OrderBO
+            db = new SaleOnlineContext();
         }
         //lập hóa đơn
         [HttpPost]

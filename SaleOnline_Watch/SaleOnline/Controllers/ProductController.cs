@@ -64,12 +64,54 @@ namespace SaleOnline.Controllers
             ViewBag.Cat = new SelectList(catbo.GetAllCat(), "CategoryID", "CategoryName");
             return View(model);
         }
+        //public ActionResult Edit(int id)
+        //{
+        //    Product pd = pbo.GetProductbyId(id);
+        //    ProductViewModel p = new ProductViewModel()
+        //    {
+
+        //        ProductName = pd.ProductName,
+        //        CategoryID = pd.CategoryID,
+        //        SupplierID = pd.SupplierID,
+        //        Quantity = (Int32)pd.Quantity,
+        //        UnitPrice = pd.UnitPrice,
+        //        ProductImage = pd.ProductImage,
+        //        Description = pd.Description,
+
+
+        //    };
+        //    ViewBag.Cat = new SelectList(catbo.GetAllCat(), "CategoryID", "CategoryName");
+        //    return View(p);//trả về View Edit kèm biến Model là RecipeViewModel
+        //}
+        //[HttpPost]
+        //public ActionResult Edit(ProductViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Product p = new Product()
+        //        {
+        //            ProductID = model.ProductID,
+        //            ProductName = model.ProductName,
+        //            CategoryID = model.CategoryID,
+        //            SupplierID = model.SupplierID,
+        //            Quantity = (Int32)model.Quantity,
+        //            UnitPrice = model.UnitPrice,
+        //            ProductImage = model.ProductImage,
+        //            Description = model.Description
+        //        };
+        //        pbo.EditProduct(p);
+        //        return RedirectToAction("Index");
+        //    }
+        //    ModelState.AddModelError("", "Error input!");
+        //    ViewBag.Cat = new SelectList(catbo.GetAllCat(), "CategoryID", "CategoryName");
+        //    return View(model);
+        //}
         public ActionResult Edit(int id)
         {
             Product pd = pbo.GetProductbyId(id);
             ProductViewModel p = new ProductViewModel()
             {
-              
+
                 ProductName = pd.ProductName,
                 CategoryID = pd.CategoryID,
                 SupplierID = pd.SupplierID,
