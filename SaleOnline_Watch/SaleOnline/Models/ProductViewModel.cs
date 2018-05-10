@@ -22,7 +22,7 @@ namespace SaleOnline.Models
         public decimal UnitPrice { get; set; }
 
 
-        public string ProductImage { get; set; }
+        public HttpPostedFileBase ProductImage { get; set; }
         public string Description { get; set; }
 
     }

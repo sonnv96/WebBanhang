@@ -19,9 +19,9 @@
                     @foreach (var item in Model)
                     {
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="blog-item item swin-transition">
+                            <div class="blog-item item swin-transition" style="height: 800px;">
                                 <div class="block-img">
-                                    <img src="~/Images/banner-img-2.jpg" alt="" class="img img-responsive">
+                                    <img src="~/Images/@item.ProductImage" alt="" class="img img-responsive">
                                     <div class="block-circle price-wrapper"><span class="price woocommerce-Price-amount amount"><span class="price-symbol">@String.Format("{0:0,0}", @item.UnitPrice) VNĐ</span></span></div>
 
                                     <div class="group-btn">

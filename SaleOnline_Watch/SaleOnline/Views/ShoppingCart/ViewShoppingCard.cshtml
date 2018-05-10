@@ -98,21 +98,29 @@
 
                 <div class="swin-sc swin-sc-contact-form light mtl style-full">
 
-                    <form>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <p colspan="6" style="text-align:right;color:blue">Tổng thành tiền: @String.Format("{0:0,0}", @ViewBag.MoneySum)</p></tr>
-                                <p colspan="6" style="text-align:right;color:blue"><a href="@Url.Action("Index","Product")">Tiếp tục mua hàng</a></p></tr>
-                            </div>
-                        </div>
 
-                        <div class="form-group">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <p colspan="6" style="text-align:right;color:blue">Tổng thành tiền: @String.Format("{0:0,0}", @ViewBag.MoneySum)</p></tr>
+                            <p colspan="6" style="text-align:right;color:blue"><a href="@Url.Action("Index","Product")">Tiếp tục mua hàng</a></p></tr>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="swin-btn-wrap center">
+                            @*@using (Html.BeginForm("Payment", "ShoppingCart"))
+                                {
+                                    <input type="submit" class="swin-btn center form-submit" value="Thanh Toán" />
+
+                                }*@
                             @using (Html.BeginForm("Payment", "ShoppingCart"))
                             {
-                                <div class="swin-btn-wrap center"><a href="@Url.Action("Payment","ShoppingCart")" class="swin-btn center form-submit"> <span>Checkout</span></a></div>
+                                <input type="submit" class="swin-btn center form-submit" value="Thanh Toán" />
+
                             }
                         </div>
-                    </form>
+                    </div>
+
                 </div>
             </div>
         </div>

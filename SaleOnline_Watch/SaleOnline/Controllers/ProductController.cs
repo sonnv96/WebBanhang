@@ -8,6 +8,7 @@ using BO;
 using PrjModel;
 using SaleOnline.Models;
 using PagedList;
+using System.IO;
 
 namespace SaleOnline.Controllers
 {
@@ -26,7 +27,7 @@ namespace SaleOnline.Controllers
         }
         public ActionResult Index()
         {
-            ViewBag.cat = db.Categories.Where(x=>x.CategoryID > 3).ToList();
+            ViewBag.cat = db.Categories.Where(x => x.CategoryID > 3).ToList();
             List<Product> lstR = pbo.GetAllProduct();
             return View(lstR);
         }
@@ -38,7 +39,10 @@ namespace SaleOnline.Controllers
         }
         public ActionResult Create()
         {
-            ViewBag.Cat = new SelectList(catbo.GetAllCat(), "CategoryID", "CategoryName");
+            Product p = new Product();
+            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
+            ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName");
+
             return View();
         }
         [HttpPost]
@@ -46,22 +50,33 @@ namespace SaleOnline.Controllers
         {
             if (ModelState.IsValid)
             {//kiểm tra Model có hợp lệ?
-                pbo.AddProduct(
-                    new Product()
-                    {
-                        ProductID = model.ProductID,
-                        ProductName = model.ProductName,
-                        CategoryID = model.CategoryID,
-                        SupplierID = model.SupplierID,
-                        Quantity =(Int32)model.Quantity,
-                        UnitPrice = model.UnitPrice,
-                        ProductImage = model.ProductImage,
-                        Description = model.Description,
-                    });
+                Product p = new Product();
+                p.ProductID = model.ProductID;
+                p.ProductName = model.ProductName;
+                ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName",p.CategoryID);
+                ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName", p.SupplierID);
+                p.Quantity = (Int32)model.Quantity;
+                p.UnitPrice = model.UnitPrice;
+                        var uploadDir = "~/Images/";
+
+                var imageUrl = System.IO.Path.GetFileName(model.ProductImage.FileName);
+
+                var imagePath = Path.Combine(Server.MapPath(uploadDir), imageUrl);
+
+                model.ProductImage.SaveAs(imagePath);
+
+                p.ProductImage = imageUrl;
+
+                p.Description = model.Description;
+                db.Products.Add(p);
+                db.SaveChanges();
+                 
                 return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "Error input!");
-            ViewBag.Cat = new SelectList(catbo.GetAllCat(), "CategoryID", "CategoryName");
+            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
+          
+            ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "CompanyName");
             return View(model);
         }
         //public ActionResult Edit(int id)
@@ -117,7 +132,7 @@ namespace SaleOnline.Controllers
                 SupplierID = pd.SupplierID,
                 Quantity = (Int32)pd.Quantity,
                 UnitPrice = pd.UnitPrice,
-                ProductImage = pd.ProductImage,
+              
                 Description = pd.Description,
 
 
@@ -138,7 +153,7 @@ namespace SaleOnline.Controllers
                     SupplierID = model.SupplierID,
                     Quantity = (Int32)model.Quantity,
                     UnitPrice = model.UnitPrice,
-                    ProductImage = model.ProductImage,
+              
                     Description = model.Description
                 };
                 pbo.EditProduct(p);
@@ -192,7 +207,7 @@ namespace SaleOnline.Controllers
         {
             ViewBag.cat = db.Categories.Where(x => x.CategoryID > 3).ToList();
 
-            return View(db.Products.ToList().Where(x => x.CategoryID ==id).ToPagedList(page, pageSize));
+            return View(db.Products.ToList().Where(x => x.CategoryID == id).ToPagedList(page, pageSize));
 
         }
         public ActionResult LoadtheoCasio(int page = 1, int pageSize = 3)

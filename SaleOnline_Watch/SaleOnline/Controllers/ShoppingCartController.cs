@@ -110,7 +110,7 @@ namespace SaleOnline.Controllers
             {
                 this.TempData["ThongBao"] = "Bạn chưa đăng nhập, " +
                     "mời bạn đăng nhập để thanh toán hóa đơn!";
-                return RedirectToAction("ViewShoppingCard", "ShoppingCard");
+                return RedirectToAction("Login", "Account");
             }
             //Kiểm tra giỏ hàng
             if (Session["Card"] == null)

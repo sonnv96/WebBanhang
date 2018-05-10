@@ -17,7 +17,7 @@
                 <div class="product-featured-image">
                     <div class="main-slider">
                         <div class="slides">
-                            <div class="featured-image-item"><img src="~/Images/banner-img-2.jpg" alt="fooday" class="img img-responsive"></div>
+                            <div class="featured-image-item"><img src="~/Images/@Model.ProductImage" alt="fooday" class="img img-responsive"></div>
                         </div>
                     </div>
                 </div>
@@ -31,27 +31,40 @@
                 </div>
                 <div class="product-price">
                     <div class="price">@Model.UnitPrice<span class="currency-symbol">vnđ</span></div>
-            </div>
+                </div>
                 <div class="product-desc">
                     <p>@Model.Supplier.CompanyName</p>
                     <p>@Model.Category.CategoryName</p>
                     <p>@Model.Quantity</p>
-                   
+
                 </div>
-            <div class="product-desc">
-                <p>@Model.Description</p>
-            </div>
-            <div class="product-quanlity">
-                <form action="#">
-                    <div class="input-group">
-                        <input type="text" name="quanlity" placeholder="" value="1" class="form-control"><a href="javascript:void(0)" class="quanlity-plus"><i class="fa fa-plus"></i></a><a href="javascript:void(0)" class="quanlity-minus"><i class="fa fa-minus"></i></a>
-                    </div>
-                    <div class="add-to-cart"><a href="javascript:void(0)" class="swin-btn"> <span>Add To Cart</span></a></div>
-                </form>
-            </div>
+                <div class="product-desc">
+                    <p>@Model.Description</p>
+                </div>
+                <div class="product-quanlity">
+                    <form action="#">
+
+                        <div class="add-to-cart"><button value="@Model.ProductID" class="swin-btn muahang"> <span>Add To Cart</span></button></div>
+                    </form>
+                </div>
 
             </div>
         </div>
-     
+
     </div>
 </section>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        $(".muahang").click(function () {
+            var id = $(this).val();
+            $.ajax({
+                url: "/ShoppingCart/AddCard",
+                data: { pid: id },
+                success: function (data) {
+                    $("#giohang").text(data)
+                }
+            })
+        })
+    })
+</script>

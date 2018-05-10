@@ -41,7 +41,7 @@ namespace DA
         {
             db.Orders.Add(od);
             db.Order_Details.AddRange(lst);
-            db.SaveChanges();
+           
         }
     }
 }
