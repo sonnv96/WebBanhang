@@ -20,7 +20,7 @@
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="blog-item item swin-transition" style="height: 800px;">
                                 <div class="block-img">
-                                    <img src="~/Images/@item.ProductImage" alt="" class="img img-responsive">
+                                    <img style=" height: 400px;" src="~/Images/@item.ProductImage" alt="" class="img img-responsive">
                                     <div class="block-circle price-wrapper"><span class="price woocommerce-Price-amount amount"><span class="price-symbol">@String.Format("{0:0,0}", @item.UnitPrice) VNĐ</span></span></div>
 
                                     <div class="group-btn">
@@ -74,5 +74,4 @@
         })
     })
 </script>
-
-@Html.PagedListPager(Model, page => Url.Action("LoadtheoCasio", new { page }))
+<div style="margin-left: 81%; margin-bottom:50px;">@Html.PagedListPager(Model, page => Url.Action("LoadtheoCasio", new { page }))</div>

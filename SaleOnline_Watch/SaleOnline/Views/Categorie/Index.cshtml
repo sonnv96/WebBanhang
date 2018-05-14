@@ -5,18 +5,18 @@
     Layout = "~/Views/HomePage/Admin.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Danh sách Loại Sản Phẩm</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo mới", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
+           Tên Loại
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Mô tả
         </th>
         <th></th>
     </tr>
@@ -30,9 +30,9 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
+            @Html.ActionLink("Sửa", "Edit", new { id=item.CategoryID }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.CategoryID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.CategoryID })
         </td>
     </tr>
 }

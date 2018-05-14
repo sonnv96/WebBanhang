@@ -4,42 +4,8 @@
     Layout = "~/Views/HomePage/Home.cshtml";
 }
 
-<h2>ViewShoppingCard</h2>
 
-<h4>Danh sách các sản phẩm đang chọn</h4>
-<table id="cartlist" cellspacing="0">
-    <tr><td>Mã sản phẩm</td><td>Tên Sản phẩm</td><td>Đơn giá</td><td>Số lượng</td><td>Thành tiền</td><td>&nbsp;</td></tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td> @item.iProID</td>
-            <td>@item.sProName</td>
-            <td>@String.Format("{0:0,0}", @item.dPrice) VNĐ</td>
-            @*Chỉnh sửa giỏ hàng gọi action UpdateCart*@
-            @using (Html.BeginForm("UpdateCart", "ShoppingCart", new { @ProId = item.iProID }))
-            {
-                <td>@Html.TextBox("txtSoLuong", item.iQuantity, new { @size = 5 }) </td>
-                <td>@String.Format("{0:0,0}", item.dPrice * item.iQuantity) VNĐ</td>
-                <td>
-                    <input type="submit" value="Cập nhật" />
-                    <br />
-                    @*Xóa giỏ hàng gọi về Action XoaGioHang*@
-                    @Html.ActionLink("Xóa", "DeleteCart", new { @ProId = item.iProID })
-                </td>
-            }
-        </tr>
-    }
-    <tr><td colspan="6" style="text-align:right;color:blue">Tổng thành tiền: @String.Format("{0:0,0}", @ViewBag.MoneySum)</td></tr>
-    <tr><td colspan="6" style="text-align:right;color:blue"><a href="@Url.Action("Index","Home")">Tiếp tục mua hàng</a></td></tr>
-    <tr>
-        <td colspan="6" style="text-align:right;color:blue">
-            @using (Html.BeginForm("Payment", "ShoppingCart"))
-            {
-                @ViewBag.ThongBao<br />@Html.Label("Nhập địa chỉ giao hàng: ") @Html.TextBox("txtAddress")<br /><input type="submit" value="Thanh Toán" />
-            }
-        </td>
-    </tr>
-</table>
+
 
 
 

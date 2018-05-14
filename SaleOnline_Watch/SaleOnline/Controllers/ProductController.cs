@@ -25,11 +25,11 @@ namespace SaleOnline.Controllers
             catbo = new CategoriesBO();
             db = new SaleOnlineContext();
         }
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 6)
         {
             ViewBag.cat = db.Categories.Where(x => x.CategoryID > 3).ToList();
             List<Product> lstR = pbo.GetAllProduct();
-            return View(lstR);
+            return View(lstR.ToPagedList(page, pageSize));
         }
         public ActionResult IndexAdmin()
         {
@@ -186,22 +186,17 @@ namespace SaleOnline.Controllers
             Product p = pbo.GetProductbyId(id);
             return View(p);
         }
-        public ActionResult Search()
+
+    
+
+        public ActionResult Search(string txtSearch, int page = 1, int pageSize = 8)
         {
-            return View();
-        }
-        public ActionResult SearchPartial(string txtSearch)
-        {
-            try
-            {
-                List<Product> lstR = pbo.SearchByTitle(txtSearch);
-                return PartialView("SearchPartial", lstR);
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Error = ex.Message;
-                return View();
-            }
+
+            ViewBag.cat = db.Categories.Where(x => x.CategoryID > 3).ToList();
+            return View(db.Products.ToList().Where(x => x.ProductName.Contains(txtSearch)).ToPagedList(page, pageSize));
+      
+        
+          
         }
         public ActionResult LoadtheoCat(int id, int page = 1, int pageSize = 3)
         {

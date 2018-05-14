@@ -1,5 +1,6 @@
 ﻿
-@using SaleOnline.Models
+@using SaleOnline.Models;
+@using PrjModel;
 
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
@@ -43,6 +44,51 @@
     <script src="~/Content/assets/vendors/respond.min.js"></script>
     <script src="~/Content/assets/vendors/pageloading/snap.svg-min.js"></script>
     <script src="~/Content/assets/vendors/pageloading/modernizr.custom.js"></script>
+    <style>
+        #searchbox {
+            width: 240px;
+        }
+
+            #searchbox input {
+                outline: none;
+            }
+
+        input:focus::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        input:focus:-moz-placeholder {
+            color: transparent;
+        }
+
+        input:focus::-moz-placeholder {
+            color: transparent;
+        }
+
+        #searchbox input[type="text"] {
+            border: 2px solid #f2f2f2;
+            font: bold 12px Arial,Helvetica,Sans-serif;
+            color: #6A6F75;
+            width: 160px;
+            padding: 5px 8px 3px 21px;
+            -webkit-border-radius: 5px 5px 5px 5px;
+            -moz-border-radius: 5px 5px 5px 5px;
+            border-radius: 5px 5px 5px 5px;
+            text-shadow: 0 2px 3px #fff;
+            -webkit-transition: all 0.7s ease 0s;
+            -moz-transition: all 0.7s ease 0s;
+            -o-transition: all 0.7s ease 0s;
+            transition: all 0.7s ease 0s;
+        }
+
+            #searchbox input[type="text"]:focus {
+                background: #f7f7f7;
+                border: 2px solid #f7f7f7;
+                width: 200px;
+                padding-left: 10px;
+            }
+    </style>
+
 </head>
 <body>
     <div id="pagewrap" class="pagewrap">
@@ -105,6 +151,18 @@
 
                                         </a>
                                     </div>
+                                </div>
+                                <div class="item">
+                                    @using (Html.BeginForm("Search", "Product", FormMethod.Get, new { @id = "searchbox" }))
+                                    {
+
+
+
+                                        <input value="@Session["search"]" required name="txtSearch" type="text" size="15" placeholder="Hãy nhập từ khóa...." />
+
+
+
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -184,7 +242,7 @@
                                     <div class="ft-area1">
                                         <div class="swin-wget swin-wget-about">
                                             <div class="clearfix">
-                                                <a class="wget-logo"><img src="assets/images/logo-ft.png" alt="" class="img img-responsive"></a>
+                                                <a class="wget-logo"><img src="~/Images/cartier-logo-png-cartier-400.png" alt="" class="img img-responsive"></a>
                                                 <ul class="socials socials-about list-unstyled list-inline">
                                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -193,7 +251,7 @@
                                                 </ul>
                                             </div>
                                             <div class="wget-about-content">
-                                     
+                                                <p>Thương hiệu Cartier được thành lập bởi Louis-François Cartier vào năm 1847, nhưng phải nhờ hai người con là Pierre và Jacques, thương hiệu mới nổi tiếng toàn cầu. Đây là một trong những nhãn hiệu từng được vua King Edward VII gọi là "trang sức dành cho vua và vua của các loại trang sức". Một trong những sản phẩm tiêu biểu tạo nên thành công của hãng là bộ sưu tập Bestiary và mẫu đồng hồ da "Santos" được sản xuất vào năm 1904. Chiếc đồng hồ Santos được đặt theo tên của Alberto Santos-Dumont, một trong những nhà tiên phong của ngành hàng không, bạn thân của Louis Cartier.</p>
                                             </div>
                                             <div class="about-contact-info clearfix">
                                                 <div class="address-info">
@@ -212,7 +270,7 @@
                                                 <div class="email-info">
                                                     <div class="info-icon"><i class="fa fa-envelope"></i></div>
                                                     <div class="info-content">
-                                                        <p>sonnv.vnu@gmail.com</p>
+                                                        <p style="margin: 0px; margin-top:1px;">sonnv.vnu@gmail.com</p>
 
                                                     </div>
                                                 </div>
